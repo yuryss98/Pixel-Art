@@ -4,6 +4,12 @@
 #color-palette {
   
 }
+.button {
+background-color: aqua;
+border: 5px solid black;
+margin-top: 10px;
+margin-left: 75px;
+}
 .color {
   border: 1px solid black;
   display: inline-block;
@@ -27,7 +33,7 @@
   color: yellow;
 }
 #pixel-board {
-  margin-top: 30px;
+  margin-top: 10px;
   background-color: white;
 }
 .pixel {
