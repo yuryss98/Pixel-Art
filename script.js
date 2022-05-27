@@ -42,11 +42,18 @@ for (let i = 0; i < pintarPixels.length; i += 1) {
 function generate() {
   if (boardSize.value === '') {
     alert('Board inválido!');
-  }
-  quadradoPixel.innerHTML = '';
-  creatPixels(boardSize.value);
-  for (let i = 0; i < pintarPixels.length; i += 1) {
-    pintarPixels[i].addEventListener('click', pintar);
+  } else if (boardSize.value < 5) {
+    quadradoPixel.innerHTML = '';
+    creatPixels(5);
+  } else if (boardSize.value > 50) {
+    quadradoPixel.innerHTML = '';
+    creatPixels(50);
+  } else {
+    quadradoPixel.innerHTML = '';
+    creatPixels(boardSize.value);
+    for (let i = 0; i < pintarPixels.length; i += 1) {
+      pintarPixels[i].addEventListener('click', pintar);
+    }
   }
 }
 generateBoard.addEventListener('click', generate);
