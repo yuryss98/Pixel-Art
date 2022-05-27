@@ -1,15 +1,17 @@
-#title {
+body {
+  text-align: center;
+}
 
+#title {
+  color: blue;
 }
-#color-palette {
-  
-}
+
 .button {
-background-color: aqua;
-border: 5px solid black;
-margin-top: 10px;
-margin-left: 75px;
+  background-color: aqua;
+  border: 5px solid black;
+  margin-top: 10px;
 }
+
 .color {
   border: 1px solid black;
   display: inline-block;
@@ -17,25 +19,31 @@ margin-left: 75px;
   height: 50px;
   margin-left: 1px;
 }
+
 #primeiraPaleta {
   background-color: black;
 }
+
 #segundaPaleta {
   background-color: red;
   color: red;
 }
+
 #terceiraPaleta {
   background-color: blue;
   color: blue;
 }
+
 #quartaPaleta {
   background-color: yellow;
   color: yellow;
 }
+
 #pixel-board {
   margin-top: 10px;
   background-color: white;
 }
+
 .pixel {
   border: solid 1px black;
   display: inline-block;
@@ -44,6 +52,4 @@ margin-left: 75px;
   color: white;
   background-color: white;
 }
-.selected {
-  
-}
+

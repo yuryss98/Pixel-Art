@@ -1,32 +1,58 @@
 const paleteColor = document.getElementsByClassName('color');
 const pintarPixels = document.getElementsByClassName('pixel');
 const botton = document.getElementById('clear-board');
-for (let i = 0; i < paleteColor.length; i +=1) {
-  paleteColor[i].addEventListener('click', selectedColor);
+const quadradoPixel = document.getElementById('pixel-board');
+const generateBoard = document.getElementById('generate-board');
+const boardSize = document.getElementById('board-size');
+function creatPixels(param) {
+  for (let i = 0; i < param; i += 1) {
+    const creat = document.createElement('div');
+    for (let j = 0; j < param; j += 1) {
+      const creatDiv = document.createElement('div');
+      creatDiv.classList.add('pixel');
+      creat.appendChild(creatDiv);
+      quadradoPixel.appendChild(creat);
+    }
+  }
 }
-function selectedColor (event) {
+creatPixels(5);
+function selectedColor(event) {
   const classSelected = document.querySelector('.selected');
   classSelected.classList.remove('selected');
   event.target.classList.add('selected');
 }
-
-for (let i = 0; i < pintarPixels.length; i +=1) {
-  pintarPixels[i].addEventListener('click', pintar)
+for (let i = 0; i < paleteColor.length; i += 1) {
+  paleteColor[i].addEventListener('click', selectedColor);
 }
-function pintar (event) {
-  if (document.querySelector('.selected').innerText === 'Black') {
-    event.target.style.backgroundColor = 'black';
-  } else if (document.querySelector('.selected').innerText === 'Red') {
-    event.target.style.backgroundColor = 'red';
-  } else if (document.querySelector('.selected').innerText === 'Blue') {
-    event.target.style.backgroundColor = 'blue';
+function pintar(event) {
+  const alvo = event;
+  if (document.querySelector('.selected').id === 'primeiraPaleta') {
+    alvo.target.style.backgroundColor = 'black';
+  } else if (document.querySelector('.selected').id === 'segundaPaleta') {
+    alvo.target.style.backgroundColor = 'red';
+  } else if (document.querySelector('.selected').id === 'terceiraPaleta') {
+    alvo.target.style.backgroundColor = 'blue';
   } else {
-    event.target.style.backgroundColor = 'yellow';
+    alvo.target.style.backgroundColor = 'yellow';
   }
 }
-function clear () {
+for (let i = 0; i < pintarPixels.length; i += 1) {
+  pintarPixels[i].addEventListener('click', pintar);
+}
+function generate() {
+  if (boardSize.value === '') {
+    alert('Board inválido!');
+  }
+  quadradoPixel.innerHTML = '';
+  creatPixels(boardSize.value);
+  for (let i = 0; i < pintarPixels.length; i += 1) {
+    pintarPixels[i].addEventListener('click', pintar);
+  }
+}
+generateBoard.addEventListener('click', generate);
+function clear() {
   const clearAll = document.getElementsByClassName('pixel');
-  for (let i = 0; i < clearAll.length; i +=1) {
+  for (let i = 0; i < clearAll.length; i += 1) {
     clearAll[i].style.backgroundColor = 'white';
   }
 }
