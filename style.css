@@ -18,25 +18,11 @@ body {
   width: 50px;
   height: 50px;
   margin-left: 1px;
+  border-radius: 50%;
 }
 
 #primeiraPaleta {
   background-color: black;
-}
-
-#segundaPaleta {
-  background-color: red;
-  color: red;
-}
-
-#terceiraPaleta {
-  background-color: blue;
-  color: blue;
-}
-
-#quartaPaleta {
-  background-color: yellow;
-  color: yellow;
 }
 
 #pixel-board {

@@ -4,13 +4,27 @@ const botton = document.getElementById('clear-board');
 const quadradoPixel = document.getElementById('pixel-board');
 const generateBoard = document.getElementById('generate-board');
 const boardSize = document.getElementById('board-size');
+const randomColor1 = document.getElementById('segundaPaleta');
+const randomColor2 = document.getElementById('terceiraPaleta');
+const randomColor3 = document.getElementById('quartaPaleta');
+function generateColor() {
+  const r = parseInt(Math.random() * 255, 10);
+  const g = parseInt(Math.random() * 255, 10);
+  const b = parseInt(Math.random() * 255, 10);
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+randomColor1.style.backgroundColor = generateColor();
+randomColor2.style.backgroundColor = generateColor();
+randomColor3.style.backgroundColor = generateColor();
+
 function creatPixels(param) {
   for (let i = 0; i < param; i += 1) {
     const creat = document.createElement('div');
     for (let j = 0; j < param; j += 1) {
       const creatDiv = document.createElement('div');
       creatDiv.classList.add('pixel');
-      creat.appendChild(creatDiv);
+      quadradoPixel.appendChild(creatDiv);
       quadradoPixel.appendChild(creat);
     }
   }
@@ -26,19 +40,16 @@ for (let i = 0; i < paleteColor.length; i += 1) {
 }
 function pintar(event) {
   const alvo = event;
-  if (document.querySelector('.selected').id === 'primeiraPaleta') {
-    alvo.target.style.backgroundColor = 'black';
-  } else if (document.querySelector('.selected').id === 'segundaPaleta') {
-    alvo.target.style.backgroundColor = 'red';
-  } else if (document.querySelector('.selected').id === 'terceiraPaleta') {
-    alvo.target.style.backgroundColor = 'blue';
-  } else {
-    alvo.target.style.backgroundColor = 'yellow';
+  const vamosPintar = document.querySelector('.selected');
+  const test = window.getComputedStyle(vamosPintar).backgroundColor;
+  alvo.target.style.backgroundColor = test;
+}
+function addClickInOPixels() {
+  for (let i = 0; i < pintarPixels.length; i += 1) {
+    pintarPixels[i].addEventListener('click', pintar);
   }
 }
-for (let i = 0; i < pintarPixels.length; i += 1) {
-  pintarPixels[i].addEventListener('click', pintar);
-}
+addClickInOPixels();
 function generate() {
   if (boardSize.value === '') {
     alert('Board inválido!');
@@ -51,9 +62,7 @@ function generate() {
   } else {
     quadradoPixel.innerHTML = '';
     creatPixels(boardSize.value);
-    for (let i = 0; i < pintarPixels.length; i += 1) {
-      pintarPixels[i].addEventListener('click', pintar);
-    }
+    addClickInOPixels();
   }
 }
 generateBoard.addEventListener('click', generate);
