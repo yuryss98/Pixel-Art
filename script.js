@@ -24,7 +24,7 @@ function creatPixels(param) {
     for (let j = 0; j < param; j += 1) {
       const creatDiv = document.createElement('div');
       creatDiv.classList.add('pixel');
-      quadradoPixel.appendChild(creatDiv);
+      creat.appendChild(creatDiv);
       quadradoPixel.appendChild(creat);
     }
   }

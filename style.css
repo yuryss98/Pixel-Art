@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background-image: url(./image.webp);
 }
 
 #title {
@@ -10,6 +11,7 @@ body {
   background-color: aqua;
   border: 5px solid black;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .color {
@@ -28,14 +30,21 @@ body {
 #pixel-board {
   margin-top: 10px;
   background-color: white;
+  width: fit-content;
+  margin: auto;
 }
 
 .pixel {
   border: solid 1px black;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  width: 25px;
+  height: 25px;
   color: white;
   background-color: white;
 }
-
+#test {
+  width: fit-content;
+  margin: auto;
+}
